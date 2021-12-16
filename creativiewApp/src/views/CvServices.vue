@@ -1,5 +1,5 @@
 <template>
-    <h1>{{ $t('aboutMe') }}</h1>
+    <h1>{{ $t('services') }}</h1>
 </template>
 
 <script lang="ts">

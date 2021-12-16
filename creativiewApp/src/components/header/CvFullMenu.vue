@@ -47,6 +47,7 @@ export default {
 <style scoped>
 .fullMenu {
     position: fixed;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
