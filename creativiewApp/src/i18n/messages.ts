@@ -4,11 +4,16 @@ export default {
             home: 'Accueil',
             services: 'Services',
             projects: 'Projets',
-            contact: 'Contact'
+            contact: 'Contact',
         },
         home: {
-            hello: 'Hello',
-            title: 'Je m\'appelle Dimitri, développeur passionné par le web'
+            build: 'Construisons',
+            together: 'Ensemble',
+            website: 'Un site web qui vous',
+            lookslike: 'Ressemble',
+            myProjects: 'Projets réalisés',
+            services: 'Services proposés'
+
         },
     },
     en: {
@@ -19,8 +24,12 @@ export default {
             contact: 'Contact'
         },
         home: {
-            hello: 'Hello',
-            title: 'I\'m Dimitri, Software engineer specialized in web'
+            build: 'Let\'s build',
+            together: 'Together',
+            website: 'A website that looks like',
+            lookslike: 'You',
+            myProjects: 'Projects',
+            services: 'Services'
         }
     }
 }

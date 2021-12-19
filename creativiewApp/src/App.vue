@@ -39,11 +39,14 @@ export default {
 
 #app {
     z-index: 2;
+    padding-left: 10px;
+    padding-right: 10px;
     position: relative;
 }
 
 * {
     font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 
 .desktop {
@@ -51,6 +54,11 @@ export default {
 }
 
 @media (min-width: 900px) {
+    #app{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .phone {
         display: none;
     }

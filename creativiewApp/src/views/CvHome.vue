@@ -1,10 +1,15 @@
 <template>
-    <div class="aboutMe">
-        <img src="../assets/me.png" alt="Dimitri"/>
-        <div class="text">
-            <p class="hello">{{ $t('home.hello') }} ! 👋</p>
-            <p class="title">{{ $t('home.title') }}</p>
-        </div>
+    <div class="mainTitle">
+        <h1>
+            <span class="blue">{{ $t('home.build') }}</span>
+            <span class="orange">{{ $t('home.together') }}</span>
+            <span class="blue">{{ $t('home.website') }}</span>
+            <span class="orange">{{ $t('home.lookslike') }}</span>
+        </h1>
+    </div>
+    <div class="buttonsAction">
+        <router-link class="btnLink services" :to="{name: 'services'}">{{ $t('home.services') }}</router-link>
+        <router-link class="btnLink projects" :to="{name: 'projects'}">{{ $t('home.myProjects') }}</router-link>
     </div>
 </template>
 
@@ -17,44 +22,67 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.aboutMe{
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
+.mainTitle{
+    margin-top: 100px;
 }
 
-.aboutMe img{
-    width: 30%;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.text{
-    color: #005082;
+.mainTitle span{
+    font-size: xx-large;
+    display: block;
+    font-family: 'Anton', sans-serif;
     font-weight: 300;
 }
 
-.hello{
-    font-size: x-large;
-    font-weight: bold;
-    margin-bottom: 0;
+.blue{
+    color: #005082;
 }
 
-.title{
-    margin-top: 0;
+.orange{
+    color: #ffa41b;
 }
 
-@media(min-width: 900px){
-    .aboutMe img{
-        width: 10%;
+.buttonsAction{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.btnLink{
+    text-decoration: none;
+    font-size: large;
+    padding: 15px;
+    border-radius: 5px;
+    color: #005082;
+    font-weight: 400;
+}
+
+.services{
+    background-color: #ffa41b;
+    border: 3px solid #ffa41b;
+    margin-bottom: 10px;
+}
+
+.projects{
+    border: 3px solid #005082;
+}
+
+@media(min-width: 900px) {
+    .mainTitle span{
+        font-size: 100px;
     }
 
-    .hello{
+    .buttonsAction{
+        flex-direction: row;
+    }
+
+    .btnLink{
         font-size: xx-large;
     }
 
-    .title{
-        font-size: x-large;
+    .services{
+        margin-bottom: 0;
+        margin-right: 20px;
     }
 }
 </style>
