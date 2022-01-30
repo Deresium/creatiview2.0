@@ -54,17 +54,17 @@ export default defineComponent({
     padding: 15px;
     border-radius: 5px;
     color: #005082;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .services{
     background-color: #ffa41b;
-    border: 3px solid #ffa41b;
+    border: 1px solid #ffa41b;
     margin-bottom: 10px;
 }
 
 .projects{
-    border: 3px solid #005082;
+    border: 1px solid #005082;
 }
 
 @media(min-width: 900px) {

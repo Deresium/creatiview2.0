@@ -96,7 +96,7 @@ header{
         display: flex;
         flex-grow: 1;
         justify-content: space-evenly;
-        border-bottom: 1px solid #005082;
+        border-bottom: 1px solid #ffa41b;
     }
 
     .leftMenu{

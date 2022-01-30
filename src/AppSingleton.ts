@@ -1,4 +1,13 @@
 import express from "express";
+import path from "path";
+import RedirectHttpsMiddleware from "./middlewares/RedirectHttpsMiddleware";
+import ReturnIndexMiddleware from "./middlewares/ReturnIndexMiddleware";
+import AllowLocalhostMiddleware from "./middlewares/AllowLocahostMiddleware";
+import ContactRouter from "./routers/ContactRouter";
+import ContactFacade from "./business/facades/ContactFacade";
+import ContactDataMapper from "./database/datamappers/ContactDataMapper";
+import DatabaseConnectionMapper from "./database/datamappers/DatabaseConnectionMapper";
+import SendMailSESDataMapper from "./external/aws/mail/SendMailSESDataMapper";
 
 export default class AppSingleton{
     private static instance: AppSingleton;
@@ -21,6 +30,23 @@ export default class AppSingleton{
     }
 
     private initApp(){
+        const publicDirectoryPath = path.join(__dirname, '../public');
+        this.expressApp.use(express.static(publicDirectoryPath));
 
+        if(process.env.NODE_ENV === 'production') {
+            this.expressApp.use(new RedirectHttpsMiddleware().getRequestHandler());
+        }
+        else {
+            this.expressApp.use(new AllowLocalhostMiddleware().getRequestHandler());
+        }
+
+        this.expressApp.use(new ReturnIndexMiddleware().getRequestHandler());
+
+        this.expressApp.use(express.json());
+
+        const databaseConnectionGateway = new DatabaseConnectionMapper();
+        databaseConnectionGateway.testConnect();
+
+        this.expressApp.use(new ContactRouter(new ContactFacade(new ContactDataMapper(), new SendMailSESDataMapper())).getRouter());
     }
 }
