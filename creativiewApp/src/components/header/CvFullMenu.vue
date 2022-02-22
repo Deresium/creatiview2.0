@@ -16,10 +16,11 @@
 </template>
 
 <script lang="ts">
+import {defineComponent} from "vue";
 import CvRoutes from "./CvRoutes.vue";
 import {computed} from "vue";
 
-export default {
+export default defineComponent({
     components: {CvRoutes},
     emits: ['update:modelValue'],
     props: {
@@ -41,7 +42,7 @@ export default {
         }
 
     }
-}
+})
 </script>
 
 <style scoped>

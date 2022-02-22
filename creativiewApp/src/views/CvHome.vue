@@ -54,7 +54,7 @@ export default defineComponent({
     padding: 15px;
     border-radius: 5px;
     color: #005082;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .services{
@@ -78,6 +78,7 @@ export default defineComponent({
 
     .btnLink{
         font-size: xx-large;
+        font-weight: 300;
     }
 
     .services{

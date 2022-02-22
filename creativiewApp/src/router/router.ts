@@ -1,7 +1,21 @@
 import {createRouter, createWebHistory} from "vue-router";
 import routes from "./routes";
 
-export default createRouter({
+const router = createRouter({
     history: createWebHistory(),
-    routes
+    routes,
+    scrollBehavior() {
+        return {top: 0}
+    }
 });
+
+router.beforeEach((to, from, next) => {
+    let title = 'Creatiview';
+    if(to.meta && to.meta.title){
+        title = <string>to.meta.title;
+    }
+    document.title = title;
+    next();
+});
+
+export default router;

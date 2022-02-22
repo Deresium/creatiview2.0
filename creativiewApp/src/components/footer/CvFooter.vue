@@ -56,6 +56,7 @@ footer > *:not(:last-child) {
     text-decoration: none;
 }
 
+
 @media(min-width: 900px){
     footer{
         flex-direction: row;
@@ -64,6 +65,14 @@ footer > *:not(:last-child) {
 
     footer > *:not(:last-child) {
         margin-bottom: 0px;
+    }
+
+    footer{
+        font-size: x-large;
+    }
+
+    .icon{
+        height: 30px;
     }
 }
 

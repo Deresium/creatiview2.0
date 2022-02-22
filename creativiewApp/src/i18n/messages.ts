@@ -52,7 +52,7 @@ export default {
             cnDistriTech1: 'Le site est entièrement personnalisé pour permettre la vente en B2B: affichage des prix après inscription, affichage avec et sans TVA, possibilité de payer par virement ou bancontact, etc...',
             cnDistriTech2: 'En plus, les articles présentés sur le site proviennent directement de l\'ERP Business Central. De cette façon, l\'entreprise ne doit pas gérer les changements de prix à 2 endroits.',
             cnDistriTech3: 'Pour gérer les commandes, les administrateurs se connectent directement avec leurs identifiants Business Central.',
-            uliegeTitle: 'Travaillant depuis plus de 4 ans au sein du Service Informatique de l\'Université de Liège, je suis coordinateur en charge du Front-End du portail myULiege'
+            uliegeTitle: 'Travaillant depuis plus de 4 ans au sein du Service Informatique de l\'Université de Liège, je suis coordinateur Front-End en charge du portail myULiege'
 
         },
         contact: {
