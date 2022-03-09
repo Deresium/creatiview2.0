@@ -4,6 +4,7 @@ import DatabaseSingleton from "../DatabaseSingleton";
 export default class AlbumEntity extends Model{
     private albumId: number;
     private name: string;
+    private order: number;
 
     getAlbumId(){
         return this.albumId;
@@ -21,6 +22,10 @@ AlbumEntity.init({
     },
     name: {
         type: DataTypes.STRING(256),
+        allowNull: false
+    },
+    order: {
+        type: DataTypes.INTEGER,
         allowNull: false
     }
 },{

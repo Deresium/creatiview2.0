@@ -57,6 +57,10 @@ PictureEntity.init({
     focalLength: {
         type: sequelize_1.DataTypes.STRING(16),
         allowNull: true
+    },
+    order: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: false
     }
 }, {
     tableName: 'Pictures',

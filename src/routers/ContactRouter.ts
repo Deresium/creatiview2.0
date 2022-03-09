@@ -11,7 +11,7 @@ export default class ContactRouter extends ApplicationRouter{
     }
 
     initRoutes(): void {
-        this.getRouter().post('/api/contact', async(req, res) => {
+        this.getRouter().post('/contact', async(req, res) => {
             const name = req.body.name;
             const firstName = req.body.firstName;
             const email = req.body.email;

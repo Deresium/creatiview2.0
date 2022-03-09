@@ -2,18 +2,18 @@
     <header>
         <div class="logoText">
             <img class="desktop logo" src="../../assets/logo.svg" alt="ceatiview logo"/>
-            <div class="desktop text">
+            <div v-if="!isHomePage" class="text">
                 <img class="svgTxt" src="../../assets/fullName.svg" alt="creatiview text logo"/>
             </div>
         </div>
-        <div class="desktop menuRoutes rightMenu">
+        <div class="desktop menuRoutes rightMenu" :class="routesClass">
             <RouterLink :to="{name:'home'}">{{ $t('nav.home') }}</RouterLink>
             <RouterLink :to="{name:'pictures'}">{{ $t('nav.pictures') }}</RouterLink>
             <RouterLink :to="{name:'contact'}">{{ $t('nav.contact') }}</RouterLink>
         </div>
 
         <button class="phone hamburger" @click="showFullMenu=true">
-            <img class="logoHamburger" src="../../assets/icons/menu_white.svg" alt="hamburger menu"/>
+            <img class="logoHamburger" :src="srcIconMenu" alt="hamburger menu"/>
         </button>
 
         <CvFullMenu v-model="showFullMenu"/>
@@ -21,17 +21,42 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
+import {computed, defineComponent, ref, watch} from "vue";
 import CvFullMenu from "./CvFullMenu.vue";
 import CvRoutes from "./CvRoutes.vue";
+import {useRoute} from "vue-router";
 
 export default defineComponent({
     components: {CvRoutes, CvFullMenu},
     setup(){
         const showFullMenu = ref(false);
 
+        const isHomePage = computed(() => {
+            const {name} = useRoute();
+            return name === 'home';
+        });
+
+        const routesClass = computed(() => {
+            return {
+                'whiteRoute': isHomePage.value
+            }
+        });
+
+        const nameMenuIcon = computed(() => {
+            if(isHomePage.value){
+                return "menu_white.svg"
+            }else{
+                return "menu.svg"
+            }
+        });
+
+        const srcIconMenu = computed(() => `/src/assets/icons/${nameMenuIcon.value}`);
+
         return{
-            showFullMenu
+            showFullMenu,
+            routesClass,
+            srcIconMenu,
+            isHomePage
         }
     }
 })
@@ -44,6 +69,7 @@ header{
     align-items: center;
     z-index: 1;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 
@@ -89,9 +115,13 @@ header{
 
     .menuRoutes a{
         text-decoration: none;
-        color: white;
+        color: #005082;
         font-size: xx-large;
         font-weight: 300;
+    }
+
+    .whiteRoute a{
+        color: white;
     }
 
     .logoText{

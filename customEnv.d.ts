@@ -9,5 +9,6 @@ declare namespace NodeJS{
         DATABASE_URL: string;
         AWS_KEY_ID: string;
         AWS_KEY_SECRET: string;
+        AWS_BUCKET_NAME: string;
     }
 }

@@ -22,6 +22,10 @@ AlbumEntity.init({
     name: {
         type: sequelize_1.DataTypes.STRING(256),
         allowNull: false
+    },
+    order: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: false
     }
 }, {
     tableName: 'Albums',

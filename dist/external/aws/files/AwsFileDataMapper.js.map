@@ -1,0 +1,1 @@
+{"version":3,"file":"AwsFileDataMapper.js","sourceRoot":"","sources":["../../../../src/external/aws/files/AwsFileDataMapper.ts"],"names":[],"mappings":";;;;;;;;;;;AAGA,MAAqB,iBAAiB;IAGlC,YAAY,aAA6B;QACrC,IAAI,CAAC,aAAa,GAAG,aAAa,CAAC;IACvC,CAAC;IAEK,UAAU,CAAC,SAAiB;;YAC9B,OAAO,MAAM,IAAI,CAAC,aAAa,CAAC,OAAO,CAAC,YAAY,SAAS,MAAM,CAAC,CAAC;QACzE,CAAC;KAAA;CACJ;AAVD,oCAUC"}

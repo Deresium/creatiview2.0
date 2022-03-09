@@ -8,6 +8,13 @@ import ContactFacade from "./business/facades/ContactFacade";
 import ContactDataMapper from "./database/datamappers/ContactDataMapper";
 import DatabaseConnectionMapper from "./database/datamappers/DatabaseConnectionMapper";
 import SendMailSESDataMapper from "./external/aws/mail/SendMailSESDataMapper";
+import AlbumRouter from "./routers/AlbumRouter";
+import AlbumFacade from "./business/facades/AlbumFacade";
+import AlbumDataMapper from "./database/datamappers/AlbumDataMapper";
+import PictureDataMapper from "./database/datamappers/PictureDataMapper";
+import AwsFileDataMapper from "./external/aws/files/AwsFileDataMapper";
+import AwsOperations from "./external/aws/files/AwsOperations";
+import PublicFileRouter from "./routers/PublicFileRouter";
 
 export default class AppSingleton{
     private static instance: AppSingleton;
@@ -42,11 +49,16 @@ export default class AppSingleton{
 
         this.expressApp.use(new ReturnIndexMiddleware().getRequestHandler());
 
+        const albumFacade = new AlbumFacade(new AlbumDataMapper(), new PictureDataMapper(), new AwsFileDataMapper(new AwsOperations()));
+
+        this.expressApp.use('/api', new PublicFileRouter(albumFacade).getRouter());
+
         this.expressApp.use(express.json());
 
         const databaseConnectionGateway = new DatabaseConnectionMapper();
         databaseConnectionGateway.testConnect();
 
-        this.expressApp.use(new ContactRouter(new ContactFacade(new ContactDataMapper(), new SendMailSESDataMapper())).getRouter());
+        this.expressApp.use('/api', new ContactRouter(new ContactFacade(new ContactDataMapper(), new SendMailSESDataMapper())).getRouter());
+        this.expressApp.use('/api', new AlbumRouter(albumFacade).getRouter());
     }
 }

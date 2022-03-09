@@ -5,7 +5,7 @@ const client_ses_1 = require("@aws-sdk/client-ses");
 class AwsCredentialsSingleton {
     constructor() {
         this.s3Client = new client_s3_1.S3Client({
-            region: 'eu-central-1',
+            region: 'eu-west-3',
             credentials: {
                 accessKeyId: process.env.AWS_KEY_ID,
                 secretAccessKey: process.env.AWS_KEY_SECRET

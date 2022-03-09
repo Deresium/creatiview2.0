@@ -54,7 +54,7 @@ export default defineComponent({
                     return;
                 }
 
-                await axiosCreatiview.post('/api/contact', {
+                await axiosCreatiview.post('/contact', {
                     name: name.value,
                     firstName: firstName.value,
                     email: email.value,

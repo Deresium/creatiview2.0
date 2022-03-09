@@ -64,7 +64,7 @@ footer > *:not(:last-child) {
     }
 
     footer > *:not(:last-child) {
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
 
     footer{

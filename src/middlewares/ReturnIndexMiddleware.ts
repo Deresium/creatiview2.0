@@ -9,7 +9,7 @@ export default class ReturnIndexMiddleware extends ApplicationMiddleware {
 
     defineMiddlewareFunction(): RequestHandler {
         return (req, res, next) => {
-            if(req.headers.accept?.includes('text/html')){
+            if(req.headers.accept?.includes('text/html') && !req.path.includes('/api/')){
                 const publicDirectoryPath = path.join(__dirname, '../../public/creativiewvue');
                 res.sendFile(publicDirectoryPath + '/index.html');
             }else {

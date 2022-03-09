@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer :class="footerClass">
         <div class="iconFooter">
             <img class="icon" src="../../assets/icons/mail_white.svg" alt="mail icon"/>
             <a href="mailto:dimitri.steinbusch@creatiview.be">dimitri.steinbusch@creatiview.be</a>
@@ -18,10 +18,26 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import {computed, defineComponent, ref, watch} from "vue";
+import {useRoute} from "vue-router";
 
 export default defineComponent({
+    setup(){
+        const isHomePage = computed(() => {
+            const {name} = useRoute();
+            return name === 'home';
+        });
 
+        const footerClass = computed(() => {
+            return {
+                'footerClass': !isHomePage.value
+            }
+        });
+
+        return {
+            footerClass
+        }
+    }
 })
 </script>
 
@@ -35,7 +51,8 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 30px;
+    justify-content: center;
+    padding-top: 5px;
     padding-bottom: 5px;
 }
 
@@ -55,6 +72,10 @@ footer a, p{
 
 .iconFooter a{
     text-decoration: none;
+}
+
+footer.footerClass{
+    background-color: #005082;
 }
 
 

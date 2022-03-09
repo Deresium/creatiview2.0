@@ -9,6 +9,7 @@ export default class PictureEntity extends Model {
     private camera: string;
     private iso: string;
     private focalLength: string;
+    private order: number;
 
     getPictureId() {
         return this.pictureId;
@@ -67,6 +68,10 @@ PictureEntity.init({
     focalLength: {
         type: DataTypes.STRING(16),
         allowNull: true
+    },
+    order: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 }, {
     tableName: 'Pictures',

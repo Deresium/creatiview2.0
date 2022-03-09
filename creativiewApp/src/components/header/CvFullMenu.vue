@@ -2,7 +2,7 @@
     <teleport to="body">
         <div class="phone">
             <transition name="showFromMiddle">
-                <div v-if="localModelValue" class="fullMenu">
+                <div v-show="localModelValue" class="fullMenu">
                     <button class="buttonExit" @click="localModelValue=false">
                         <img class="clearIcon" src="../../assets/icons/clear.svg" alt="clear icon"/>
                     </button>

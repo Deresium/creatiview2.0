@@ -9,7 +9,7 @@ export default class AwsCredentialsSingleton{
 
     private constructor() {
         this.s3Client = new S3Client({
-            region: 'eu-central-1',
+            region: 'eu-west-3',
             credentials: {
                 accessKeyId: process.env.AWS_KEY_ID,
                 secretAccessKey: process.env.AWS_KEY_SECRET

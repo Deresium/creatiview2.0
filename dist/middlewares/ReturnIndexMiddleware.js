@@ -12,7 +12,7 @@ class ReturnIndexMiddleware extends ApplicationMiddleware_1.default {
     defineMiddlewareFunction() {
         return (req, res, next) => {
             var _a;
-            if ((_a = req.headers.accept) === null || _a === void 0 ? void 0 : _a.includes('text/html')) {
+            if (((_a = req.headers.accept) === null || _a === void 0 ? void 0 : _a.includes('text/html')) && !req.path.includes('/api/')) {
                 const publicDirectoryPath = path_1.default.join(__dirname, '../../public/creativiewvue');
                 res.sendFile(publicDirectoryPath + '/index.html');
             }

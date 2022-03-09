@@ -20,7 +20,7 @@ class ContactRouter extends ApplicationRouter_1.default {
         this.contactRequester = contactRequester;
     }
     initRoutes() {
-        this.getRouter().post('/api/contact', (req, res) => __awaiter(this, void 0, void 0, function* () {
+        this.getRouter().post('/contact', (req, res) => __awaiter(this, void 0, void 0, function* () {
             const name = req.body.name;
             const firstName = req.body.firstName;
             const email = req.body.email;
