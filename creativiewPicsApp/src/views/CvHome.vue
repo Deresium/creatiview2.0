@@ -59,7 +59,13 @@ export default {}
     margin-bottom: 100px;
 }
 
-@media (min-width: 900px) and (orientation: landscape) {
+@media(orientation: landscape){
+    .txtCenterHome{
+        top: 15vh;
+    }
+}
+
+@media (min-width: 900px) {
     .divHeroImg {
         background-image: url("../assets/IMG_9947_MIN.PNG");
         background-color: black;

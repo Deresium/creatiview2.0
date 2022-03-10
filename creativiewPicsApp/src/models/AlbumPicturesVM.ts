@@ -13,4 +13,12 @@ export default class AlbumPicturesVM {
     public addPicture(picture: PictureVM){
         this.pictures.push(picture);
     }
+
+    public getAlbumName(){
+        return this.album.getName();
+    }
+
+    public getPictures(){
+        return this.pictures;
+    }
 }

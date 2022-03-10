@@ -1,6 +1,6 @@
 <template>
     <div class="albums">
-        <router-link :to="{name:'home'}" :style="albumStyle(album.getPresentationPictureId())" class="album albumSizing" v-for="album in albums" :key="album.getId()">
+        <router-link :to="{name:'album', params: {albumId: album.getId()}}" :style="albumStyle(album.getPresentationPictureId())" class="album albumSizing" v-for="album in albums" :key="album.getId()">
             <div class="orangeBackground albumSizing"/>
             <p class="albumName">{{ album.getName() }}</p>
         </router-link>

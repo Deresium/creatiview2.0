@@ -15,4 +15,28 @@ export default class PictureVM {
         this.focalLength = focalLength;
     }
 
+    public getPictureId(){
+        return this.pictureId;
+    }
+
+    public getAperture(){
+        return this.aperture;
+    }
+
+    public getSpeed(){
+        return this.speed;
+    }
+
+    public getCamera(){
+        return this.camera;
+    }
+
+    public getIso(){
+        return this.iso;
+    }
+
+    public getFocalLength(){
+        return this.focalLength;
+    }
+
 }

@@ -78,9 +78,20 @@ footer.footerClass{
     background-color: #005082;
 }
 
+@media(orientation: landscape){
+    footer{
+        display: none;
+    }
+
+    footer.footerClass{
+        display: flex;
+    }
+}
+
 
 @media(min-width: 900px){
     footer{
+        display: flex;
         flex-direction: row;
         justify-content: space-around;
     }

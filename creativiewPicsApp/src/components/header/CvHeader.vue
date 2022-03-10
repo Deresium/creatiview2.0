@@ -67,7 +67,6 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
     margin-top: 10px;
     margin-bottom: 10px;
 }
