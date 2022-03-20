@@ -13,7 +13,8 @@
         </div>
 
         <button class="phone hamburger" @click="showFullMenu=true">
-            <img class="logoHamburger" :src="srcIconMenu" alt="hamburger menu"/>
+            <img v-if="!isHomePage" class="logoHamburger" src="../../assets/icons/menu_icon.svg" alt="hamburger menu"/>
+            <img v-if="isHomePage" class="logoHamburger" src="../../assets/icons/menu_white.svg" alt="hamburger menu"/>
         </button>
 
         <CvFullMenu v-model="showFullMenu"/>
@@ -42,20 +43,9 @@ export default defineComponent({
             }
         });
 
-        const nameMenuIcon = computed(() => {
-            if(isHomePage.value){
-                return "menu_white.svg"
-            }else{
-                return "menu.svg"
-            }
-        });
-
-        const srcIconMenu = computed(() => `/src/assets/icons/${nameMenuIcon.value}`);
-
         return{
             showFullMenu,
             routesClass,
-            srcIconMenu,
             isHomePage
         }
     }
