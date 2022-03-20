@@ -1,4 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="802" height="290" viewBox="0 0 802 290">
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Anton&amp;display=swap')
+        </style>
+    </defs>
     <g id="Group_8" transform="translate(-88 -232)">
         <path id="Intersection_3" d="M119.111,0a119.111,119.111,0,1,0,0,238.222Z" transform="translate(88 232)"
               fill="#ffa41b"/>

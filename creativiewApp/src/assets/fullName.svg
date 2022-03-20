@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="802" height="290" viewBox="0 0 802 290">
     <defs>
-        <style type="text/css">
-            @import url('https://fonts.googleapis.com/css2?family=Anton');
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Anton&amp;display=swap')
         </style>
     </defs>
     <g id="Group_8" transform="translate(-88 -232)">
