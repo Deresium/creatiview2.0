@@ -75,6 +75,7 @@ header{
 }
 
 .svgTxt{
+    font-family: 'Anton', sans-serif;
     width: 150px;
 }
 
