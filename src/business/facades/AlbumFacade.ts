@@ -36,7 +36,8 @@ export default class AlbumFacade implements IAlbumRequester{
         for(const picture of pictures){
             const aperture = `f/${picture.getAperture()}`;
             const focalLength = `${picture.getFocalLength()} mm`;
-            const pictureVM = new PictureVM(picture.getPictureId(), aperture, picture.getSpeed(), picture.getCamera(), picture.getIso(), focalLength);
+            const iso = `ISO ${picture.getIso()}`;
+            const pictureVM = new PictureVM(picture.getPictureId(), aperture, picture.getSpeed(), picture.getCamera(), iso, focalLength);
             albumPictureVM.addPicture(pictureVM);
         }
         return albumPictureVM;

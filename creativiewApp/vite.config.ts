@@ -8,6 +8,6 @@ export default defineConfig({
         port: 8080
     },
     build: {
-        outDir: '../public/creativiewvue'
+        outDir: '../public/creativiewvue',
     }
 })

@@ -41,7 +41,8 @@ class AlbumFacade {
             for (const picture of pictures) {
                 const aperture = `f/${picture.getAperture()}`;
                 const focalLength = `${picture.getFocalLength()} mm`;
-                const pictureVM = new PictureVM_1.default(picture.getPictureId(), aperture, picture.getSpeed(), picture.getCamera(), picture.getIso(), focalLength);
+                const iso = `ISO ${picture.getIso()}`;
+                const pictureVM = new PictureVM_1.default(picture.getPictureId(), aperture, picture.getSpeed(), picture.getCamera(), iso, focalLength);
                 albumPictureVM.addPicture(pictureVM);
             }
             return albumPictureVM;

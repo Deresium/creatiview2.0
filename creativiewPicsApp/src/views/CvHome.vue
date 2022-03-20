@@ -3,7 +3,7 @@
         <div class="fixedPanel divHeroImg"/>
         <div class="fixedPanel txtCenterHome">
             <img class="svgTxt" src="../assets/fullName.svg" alt="creatiview text logo"/>
-            <router-link class="linkToPictures" :to="{name: 'pictures'}">Découvrir</router-link>
+            <router-link class="linkToPictures" :to="{name: 'pictures'}">Découvrir les albums</router-link>
         </div>
     </teleport>
 </template>

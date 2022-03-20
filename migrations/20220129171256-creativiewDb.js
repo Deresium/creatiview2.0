@@ -44,6 +44,10 @@ module.exports = {
                         type: Sequelize.STRING(256),
                         allowNull: false
                     },
+                    order: {
+                        type: Sequelize.INTEGER,
+                        allowNull: false
+                    },
                     createdAt: {
                         type: Sequelize.DATE
                     },
@@ -88,6 +92,10 @@ module.exports = {
                     focalLength: {
                         type: Sequelize.STRING(16),
                         allowNull: true
+                    },
+                    order: {
+                        type: Sequelize.INTEGER,
+                        allowNull: false
                     },
                     createdAt: {
                         type: Sequelize.DATE

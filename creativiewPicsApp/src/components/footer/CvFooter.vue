@@ -12,7 +12,13 @@
             <img class="facebookIcon" src="../../assets/icons/facebook_white.svg" alt="facebook icon"/>
         </a>
         <div>
+            <a class="webLink" href="https://www.creatiview.be" target="_blank" rel="noopener">Découvrir mes réalisations web</a>
+        </div>
+        <div>
             <p>TVA: BE0753 863 214</p>
+        </div>
+        <div>
+            <router-link :to="{name: 'termsOfUse'}">Conditions générales</router-link>
         </div>
     </footer>
 </template>
@@ -52,7 +58,7 @@ footer{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 5px;
+    padding-top: 20px;
     padding-bottom: 5px;
 }
 
@@ -76,6 +82,13 @@ footer a, p{
 
 footer.footerClass{
     background-color: #005082;
+}
+
+.webLink{
+    text-decoration: none;
+    background-color: #ffa41b;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 @media(orientation: landscape){
@@ -106,6 +119,10 @@ footer.footerClass{
 
     .icon{
         height: 30px;
+    }
+
+    .webLink{
+        background-color: transparent;
     }
 }
 
