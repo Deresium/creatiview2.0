@@ -7,7 +7,7 @@
         <div class="logoText">
             <img class="desktop logo" src="../../assets/logo.svg" alt="ceatiview logo"/>
             <div class="text">
-                <img class="svgTxt" src="../../assets/fullName.svg" alt="creatiview text logo"/>
+                <CvLogoSvg/>
             </div>
         </div>
         <div class="desktop menuRoutes rightMenu">
@@ -27,9 +27,10 @@
 import {defineComponent, ref} from "vue";
 import CvFullMenu from "./CvFullMenu.vue";
 import CvRoutes from "./CvRoutes.vue";
+import CvLogoSvg from "./CvLogoSvg.vue";
 
 export default defineComponent({
-    components: {CvRoutes, CvFullMenu},
+    components: {CvLogoSvg, CvRoutes, CvFullMenu},
     setup(){
         const showFullMenu = ref(false);
 

@@ -3,7 +3,7 @@
         <div class="logoText">
             <img class="desktop logo" src="../../assets/logo.svg" alt="ceatiview logo"/>
             <div v-if="!isHomePage" class="text">
-                <img class="svgTxt" src="../../assets/fullName.svg" alt="creatiview text logo"/>
+                <CvLogoSvg/>
             </div>
         </div>
         <div class="desktop menuRoutes rightMenu" :class="routesClass">
@@ -26,9 +26,10 @@ import {computed, defineComponent, ref, watch} from "vue";
 import CvFullMenu from "./CvFullMenu.vue";
 import CvRoutes from "./CvRoutes.vue";
 import {useRoute} from "vue-router";
+import CvLogoSvg from "./CvLogoSvg.vue";
 
 export default defineComponent({
-    components: {CvRoutes, CvFullMenu},
+    components: {CvLogoSvg, CvRoutes, CvFullMenu},
     setup(){
         const showFullMenu = ref(false);
 
@@ -68,11 +69,6 @@ header{
 
 .logo{
     width: 75px;
-}
-
-.svgTxt{
-    font-family: 'Anton', sans-serif;
-    width: 150px;
 }
 
 .hamburger{

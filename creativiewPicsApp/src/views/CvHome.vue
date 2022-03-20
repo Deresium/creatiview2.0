@@ -2,14 +2,19 @@
     <teleport to="body">
         <div class="fixedPanel divHeroImg"/>
         <div class="fixedPanel txtCenterHome">
-            <img class="svgTxt" src="../assets/fullName.svg" alt="creatiview text logo"/>
+            <div class="svgTxt">
+                <CvLogoSvg width="60%"/>
+            </div>
             <router-link class="linkToPictures" :to="{name: 'pictures'}">Découvrir les albums</router-link>
         </div>
     </teleport>
 </template>
 
 <script lang="ts">
-export default {}
+import CvLogoSvg from "../components/header/CvLogoSvg.vue";
+export default {
+    components: {CvLogoSvg}
+}
 </script>
 
 <style scoped>
@@ -21,6 +26,11 @@ export default {}
     position: fixed;
     margin: 0;
     padding: 0;
+}
+
+.svgTxt{
+    width: 100%;
+    text-align: center;
 }
 
 .txtCenterHome{
@@ -40,10 +50,6 @@ export default {}
     top: 0;
     left: 0;
 
-}
-
-.svgTxt {
-    width: 60%;
 }
 
 .linkToPictures {
