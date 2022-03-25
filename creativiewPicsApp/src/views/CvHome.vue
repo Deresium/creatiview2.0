@@ -73,7 +73,7 @@ export default {
 
 @media (min-width: 900px) {
     .divHeroImg {
-        background-image: url("../assets/IMG_9947_MIN.PNG");
+        background-image: url("https://www.pictures.creatiview.be/api/pictures/11");
         background-color: black;
     }
 
