@@ -41,7 +41,7 @@ export default {
 }
 
 .divHeroImg {
-    background-image: url("../assets/blue_fire_min.jpg");
+    background-image: url("https://www.pictures.creatiview.be/api/pictures/1");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
