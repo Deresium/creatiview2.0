@@ -231,7 +231,7 @@ module.exports = {
                     },
                     userAccountId: {
                         type: DataTypes.INTEGER,
-                        allowNull: false,
+                        allowNull: true,
                         references: {
                             model: {
                                 tableName: 'Accounts',
@@ -242,7 +242,7 @@ module.exports = {
                     },
                     customerProviderAccountId: {
                         type: DataTypes.INTEGER,
-                        allowNull: false,
+                        allowNull: true,
                         references: {
                             model: {
                                 tableName: 'Accounts',

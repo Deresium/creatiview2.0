@@ -17,13 +17,12 @@ class GoogleLoginStrategy {
     }
     login() {
         return __awaiter(this, void 0, void 0, function* () {
-            const client = new google_auth_library_1.OAuth2Client(process.env.GOOGLE_OAUTH_ID);
+            const client = new google_auth_library_1.OAuth2Client(process.env.GOOGLE_ID_AUTH, process.env.GOOGLE_SECRET_AUTH);
             const ticket = yield client.verifyIdToken({
-                idToken: this.loginRequest.getIdToken(),
-                audience: process.env.GOOGLE_OAUTH_ID
+                idToken: this.loginRequest.getIdToken()
             });
             const payload = ticket.getPayload();
-            if (!payload) {
+            if (!payload || payload.iss !== 'accounts.google.com' || !payload.email_verified) {
                 return null;
             }
             const userid = payload['sub'];

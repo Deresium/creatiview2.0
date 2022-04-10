@@ -23,4 +23,8 @@ export default class UserDataMapper implements IUserDataGateway{
             }
         });
     }
+
+    async getAllUsers(): Promise<Array<UserEntity>> {
+        return await UserEntity.findAll();
+    }
 }

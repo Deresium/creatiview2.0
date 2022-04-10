@@ -14,16 +14,15 @@ export default class GoogleLoginStrategy implements ILoginStrategy{
     }
 
     async login(): Promise<UserEntity> {
-        const client = new OAuth2Client(process.env.GOOGLE_OAUTH_ID);
+        const client = new OAuth2Client(process.env.GOOGLE_ID_AUTH, process.env.GOOGLE_SECRET_AUTH);
 
         const ticket = await client.verifyIdToken({
-            idToken: this.loginRequest.getIdToken(),
-            audience: process.env.GOOGLE_OAUTH_ID
+            idToken: this.loginRequest.getIdToken()
         });
 
         const payload = ticket.getPayload();
 
-        if(!payload) {
+        if(!payload || payload.iss !== 'accounts.google.com' || !payload.email_verified) {
             return null;
         }
 

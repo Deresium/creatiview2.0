@@ -12,38 +12,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const UserEntity_1 = __importDefault(require("../entities/UserEntity"));
-class UserDataMapper {
-    createGoogleUser(name, email, googleId) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                return yield UserEntity_1.default.create({
-                    name,
-                    email,
-                    googleId,
-                    role: 'USER'
-                });
-            }
-            catch (e) {
-                console.error(e);
-                throw e;
-            }
-        });
-    }
-    getUserByGoogleId(googleId) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield UserEntity_1.default.findOne({
-                where: {
-                    googleId
-                }
-            });
-        });
+const KeyValue_1 = __importDefault(require("../viewmodels/KeyValue"));
+class BillingFacade {
+    constructor(userDataGateway) {
+        this.userDataGateway = userDataGateway;
     }
     getAllUsers() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield UserEntity_1.default.findAll();
+            const users = yield this.userDataGateway.getAllUsers();
+            const keyValues = new Array();
+            for (const user of users) {
+                keyValues.push(new KeyValue_1.default(user.getUserId().toString(), user.getName()));
+            }
+            return keyValues;
         });
     }
 }
-exports.default = UserDataMapper;
-//# sourceMappingURL=UserDataMapper.js.map
+exports.default = BillingFacade;
+//# sourceMappingURL=BillingFacade.js.map
