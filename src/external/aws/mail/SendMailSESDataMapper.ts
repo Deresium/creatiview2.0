@@ -1,5 +1,5 @@
 import ISendMailDataGateway from "./ISendMailDataGateway";
-import Contact from "../../../business/models/Contact";
+import Contact from "../../../business/viewmodels/Contact";
 import {SendEmailCommand} from "@aws-sdk/client-ses";
 import AwsCredentialsSingleton from "../AwsCredentialsSingleton";
 

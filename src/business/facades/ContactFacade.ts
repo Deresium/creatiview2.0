@@ -1,5 +1,5 @@
 import IContactRequester from "../requesters/IContactRequester";
-import Contact from "../models/Contact";
+import Contact from "../viewmodels/Contact";
 import IContactDataGateway from "../../database/datagateways/IContactDataGateway";
 import ISendMailDataGateway from "../../external/aws/mail/ISendMailDataGateway";
 

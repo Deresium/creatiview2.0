@@ -1,9 +1,9 @@
 import IAlbumRequester from "../requesters/IAlbumRequester";
-import AlbumVM from "../models/AlbumVM";
+import AlbumVM from "../viewmodels/AlbumVM";
 import IAlbumDataGateway from "../../database/datagateways/IAlbumDataGateway";
-import AlbumPicturesVM from "../models/AlbumPicturesVM";
+import AlbumPicturesVM from "../viewmodels/AlbumPicturesVM";
 import IPictureDataGateway from "../../database/datagateways/IPictureDataGateway";
-import PictureVM from "../models/PictureVM";
+import PictureVM from "../viewmodels/PictureVM";
 import IFileDataGateway from "../../external/aws/files/IFileDataGateway";
 
 export default class AlbumFacade implements IAlbumRequester{

@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const ApplicationRouter_1 = __importDefault(require("./ApplicationRouter"));
-const Contact_1 = __importDefault(require("../business/models/Contact"));
+const Contact_1 = __importDefault(require("../business/viewmodels/Contact"));
 class ContactRouter extends ApplicationRouter_1.default {
     constructor(contactRequester) {
         super();

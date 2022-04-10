@@ -1,5 +1,5 @@
 import ApplicationRouter from "./ApplicationRouter";
-import Contact from "../business/models/Contact";
+import Contact from "../business/viewmodels/Contact";
 import IContactRequester from "../business/requesters/IContactRequester";
 
 export default class ContactRouter extends ApplicationRouter{

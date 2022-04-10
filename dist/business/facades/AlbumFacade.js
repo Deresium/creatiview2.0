@@ -12,9 +12,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const AlbumVM_1 = __importDefault(require("../models/AlbumVM"));
-const AlbumPicturesVM_1 = __importDefault(require("../models/AlbumPicturesVM"));
-const PictureVM_1 = __importDefault(require("../models/PictureVM"));
+const AlbumVM_1 = __importDefault(require("../viewmodels/AlbumVM"));
+const AlbumPicturesVM_1 = __importDefault(require("../viewmodels/AlbumPicturesVM"));
+const PictureVM_1 = __importDefault(require("../viewmodels/PictureVM"));
 class AlbumFacade {
     constructor(albumDataGateway, pictureDataGateway, fileDataGateway) {
         this.albumDataGateway = albumDataGateway;

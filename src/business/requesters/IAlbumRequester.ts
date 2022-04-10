@@ -1,5 +1,5 @@
-import AlbumVM from "../models/AlbumVM";
-import AlbumPicturesVM from "../models/AlbumPicturesVM";
+import AlbumVM from "../viewmodels/AlbumVM";
+import AlbumPicturesVM from "../viewmodels/AlbumPicturesVM";
 
 export default interface IAlbumRequester{
     getListAlbums(): Promise<Array<AlbumVM>>;

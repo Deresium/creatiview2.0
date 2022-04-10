@@ -15,6 +15,9 @@ import PictureDataMapper from "./database/datamappers/PictureDataMapper";
 import AwsFileDataMapper from "./external/aws/files/AwsFileDataMapper";
 import AwsOperations from "./external/aws/files/AwsOperations";
 import PublicFileRouter from "./routers/PublicFileRouter";
+import LoginRouter from "./routers/LoginRouter";
+import LoginFacade from "./business/facades/LoginFacade";
+import UserDataMapper from "./database/datamappers/UserDataMapper";
 
 export default class AppSingleton{
     private static instance: AppSingleton;
@@ -60,5 +63,6 @@ export default class AppSingleton{
 
         this.expressApp.use('/api', new ContactRouter(new ContactFacade(new ContactDataMapper(), new SendMailSESDataMapper())).getRouter());
         this.expressApp.use('/api', new AlbumRouter(albumFacade).getRouter());
+        this.expressApp.use('/api', new LoginRouter(new LoginFacade(new UserDataMapper())).getRouter());
     }
 }

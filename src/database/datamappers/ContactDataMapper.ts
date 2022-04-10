@@ -1,5 +1,5 @@
 import IContactDataGateway from "../datagateways/IContactDataGateway";
-import Contact from "../../business/models/Contact";
+import Contact from "../../business/viewmodels/Contact";
 import ContactEntity from "../entities/ContactEntity";
 
 export default class ContactDataMapper implements IContactDataGateway {
