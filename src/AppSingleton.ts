@@ -21,6 +21,8 @@ import UserDataMapper from "./database/datamappers/UserDataMapper";
 import BillingRouter from "./routers/BillingRouter";
 import BillingFacade from "./business/facades/BillingFacade";
 import ExtractTokenMiddleware from "./middlewares/ExtractTokenMiddleware";
+import AccountDataMapper from "./database/datamappers/AccountDataMapper";
+import CustomerProviderDataMapper from "./database/datamappers/CustomerProviderDataMapper";
 
 export default class AppSingleton{
     private static instance: AppSingleton;
@@ -69,6 +71,6 @@ export default class AppSingleton{
         this.expressApp.use('/api', new ContactRouter(new ContactFacade(new ContactDataMapper(), new SendMailSESDataMapper())).getRouter());
         this.expressApp.use('/api', new AlbumRouter(albumFacade).getRouter());
         this.expressApp.use('/api', new LoginRouter(new LoginFacade(new UserDataMapper())).getRouter());
-        this.expressApp.use('/api', new BillingRouter(new BillingFacade(new UserDataMapper())).getRouter());
+        this.expressApp.use('/api', new BillingRouter(new BillingFacade(new UserDataMapper(), new AccountDataMapper(), new CustomerProviderDataMapper())).getRouter());
     }
 }

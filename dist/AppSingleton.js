@@ -26,6 +26,8 @@ const UserDataMapper_1 = __importDefault(require("./database/datamappers/UserDat
 const BillingRouter_1 = __importDefault(require("./routers/BillingRouter"));
 const BillingFacade_1 = __importDefault(require("./business/facades/BillingFacade"));
 const ExtractTokenMiddleware_1 = __importDefault(require("./middlewares/ExtractTokenMiddleware"));
+const AccountDataMapper_1 = __importDefault(require("./database/datamappers/AccountDataMapper"));
+const CustomerProviderDataMapper_1 = __importDefault(require("./database/datamappers/CustomerProviderDataMapper"));
 class AppSingleton {
     constructor() {
         this.expressApp = (0, express_1.default)();
@@ -59,7 +61,7 @@ class AppSingleton {
         this.expressApp.use('/api', new ContactRouter_1.default(new ContactFacade_1.default(new ContactDataMapper_1.default(), new SendMailSESDataMapper_1.default())).getRouter());
         this.expressApp.use('/api', new AlbumRouter_1.default(albumFacade).getRouter());
         this.expressApp.use('/api', new LoginRouter_1.default(new LoginFacade_1.default(new UserDataMapper_1.default())).getRouter());
-        this.expressApp.use('/api', new BillingRouter_1.default(new BillingFacade_1.default(new UserDataMapper_1.default())).getRouter());
+        this.expressApp.use('/api', new BillingRouter_1.default(new BillingFacade_1.default(new UserDataMapper_1.default(), new AccountDataMapper_1.default(), new CustomerProviderDataMapper_1.default())).getRouter());
     }
 }
 exports.default = AppSingleton;

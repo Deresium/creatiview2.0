@@ -23,6 +23,26 @@ class BillingRouter extends ApplicationRouter_1.default {
         this.getRouter().get('/users', new OnlyAdminMiddleware_1.default().getRequestHandler(), (req, res) => __awaiter(this, void 0, void 0, function* () {
             res.status(200).send(yield this.billingRequester.getAllUsers());
         }));
+        this.getRouter().get('/customerProviders', new OnlyAdminMiddleware_1.default().getRequestHandler(), (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const isCustomer = req.query.isCustomer;
+            res.status(200).send(yield this.billingRequester.getCustomerOrProviders(isCustomer));
+        }));
+        this.getRouter().get('/user/:userId/accounts', new OnlyAdminMiddleware_1.default().getRequestHandler(), (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const userId = req.params.userId;
+            if (!userId) {
+                res.status(400).send();
+                return;
+            }
+            res.status(200).send(yield this.billingRequester.getAccountsForUsers(userId));
+        }));
+        this.getRouter().get('/customerProvider/:customerProviderId/accounts', new OnlyAdminMiddleware_1.default().getRequestHandler(), (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const customerProviderId = req.params.customerProviderId;
+            if (!customerProviderId) {
+                res.status(400).send();
+                return;
+            }
+            res.status(200).send(yield this.billingRequester.getAccountsForCustomerProvider(customerProviderId));
+        }));
     }
 }
 exports.default = BillingRouter;

@@ -14,8 +14,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const KeyValue_1 = __importDefault(require("../viewmodels/KeyValue"));
 class BillingFacade {
-    constructor(userDataGateway) {
+    constructor(userDataGateway, accountDataGateway, customerProviderDataGateway) {
         this.userDataGateway = userDataGateway;
+        this.accountDataGateway = accountDataGateway;
+        this.customerProviderDataGateway = customerProviderDataGateway;
     }
     getAllUsers() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -26,6 +28,35 @@ class BillingFacade {
             }
             return keyValues;
         });
+    }
+    getAccountsForCustomerProvider(customerProviderId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const accounts = yield this.accountDataGateway.getAccountsForCustomerProvider(customerProviderId);
+            return BillingFacade.accountsToKeyValue(accounts);
+        });
+    }
+    getAccountsForUsers(userId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const accounts = yield this.accountDataGateway.getAccountsForUser(userId);
+            return BillingFacade.accountsToKeyValue(accounts);
+        });
+    }
+    getCustomerOrProviders(isCustomer) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const customerProviders = yield this.customerProviderDataGateway.getCustomersOrProviders(isCustomer);
+            const keyValues = new Array();
+            for (const customerProvider of customerProviders) {
+                keyValues.push(new KeyValue_1.default(customerProvider.getCustomerProviderId().toString(), customerProvider.getName()));
+            }
+            return keyValues;
+        });
+    }
+    static accountsToKeyValue(accounts) {
+        const keyValues = new Array();
+        for (const account of accounts) {
+            keyValues.push(new KeyValue_1.default(account.getAccountId().toString(), account.getAccountNumber()));
+        }
+        return keyValues;
     }
 }
 exports.default = BillingFacade;

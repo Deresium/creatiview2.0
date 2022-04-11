@@ -7,4 +7,4 @@ class KeyValue {
     }
 }
 exports.default = KeyValue;
-//# sourceMappingURL=KeyValueParser.js.map
+//# sourceMappingURL=KeyValue.js.map
