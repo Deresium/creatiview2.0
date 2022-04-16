@@ -121,10 +121,6 @@ footer > *:not(:last-child) {
         margin-bottom: 0;
     }
 
-    footer {
-        font-size: x-large;
-    }
-
     .icon {
         height: 30px;
     }

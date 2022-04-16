@@ -47,7 +47,7 @@ export default {
         },
         projects: {
             findProject: 'Vous trouverez ici les différents projets dont je m\'occupe.',
-            needs: 'Je travaille aussi bien au forfait ou en régie, selon les besoins de mes clients.',
+            needs: 'Je travaille aussi bien au forfait qu\'en régie, selon les besoins de mes clients.',
             estimate: 'Si je travaille au forfait, je m\'assure avec mon client que le cahier des charges est clair. La facture correspondra toujours au prix du devis.',
             cnTitle: 'Site Web présentant l\'entreprise familiale active dans les solutions réseaux',
             cnTech1: 'La société a plusieurs services et projets à présenter. Il a fallu prévoir un nombre conséquent de pages afin que ce soit le plus clair possible pour le visiteur.',
@@ -57,7 +57,17 @@ export default {
             cnDistriTech1: 'Le site est entièrement personnalisé pour permettre la vente en B2B: affichage des prix après inscription, affichage avec et sans TVA, possibilité de payer par virement ou bancontact, etc...',
             cnDistriTech2: 'En plus, les articles présentés sur le site proviennent directement de l\'ERP Business Central. De cette façon, l\'entreprise ne doit pas gérer les changements de prix à 2 endroits.',
             cnDistriTech3: 'Pour gérer les commandes, les administrateurs se connectent directement avec leurs identifiants Business Central.',
-            uliegeTitle: 'Travaillant depuis plus de 4 ans au sein du Service Informatique de l\'Université de Liège, je suis coordinateur Front-End en charge du portail myULiege'
+            uliegeTitle: 'Travaillant depuis plus de 4 ans au sein du Service Informatique de l\'Université de Liège, je suis coordinateur Front-End en charge du portail myULiege',
+            creativiewPictureTitle: 'Je partage ma passion pour la photographie au travers de mes clichés',
+            creativiewPictureAmazon: 'Utilisation du système de stockage Amazon S3 pour les photos.',
+            creativiewAmazonSES: 'Utilisation d\'Amazon SES pour gérer l\'envoi des emails de contact',
+            creativiewPictureDb: 'Mise en place d\'une base de données pour contenir les albums et les informations sur chaque photo.',
+            samplierTitle: 'Site web d\'actualités dans le monde du rap français',
+            samplierCopywriting: 'Traduction des articles vers le format web afin que ceux-ci soient lisibles sur tous les formats d\'écran.',
+            samplierCalendar: 'Mise en place d\'un calendrier où il est possible d\'ajouter des évènements et des sorties d\'albums.',
+            samplierSounds: 'Possibilité de déposer des sons et de les écouter directement sur l\'application web.'
+
+
 
         },
         contact: {
@@ -130,8 +140,15 @@ export default {
             cnDistriTech1: 'The site is fully personalized to allow B2B sales: display of prices after registration, display with and without VAT, possibility of paying by bank transfer or bancontact, etc...',
             cnDistriTech2: 'In addition, the articles presented on the site come directly from the ERP Business Central. This way, the company does not have to deal with price changes in 2 places.',
             cnDistriTech3: 'To manage orders, administrators log in directly with their Business Central credentials.',
-            uliegeTitle: 'Working for more than 4 years in the IT Department of the University of Liège, I am Front-End coordinator in charge of the myULiege portal'
-
+            uliegeTitle: 'Working for more than 4 years in the IT Department of the University of Liège, I am Front-End coordinator in charge of the myULiege portal',
+            creativiewPictureTitle: 'I share my passion for photography through my shots',
+            creativiewPictureAmazon: 'Using Amazon S3 storage system for photos.',
+            creativiewAmazonSES: 'Using Amazon SES to send email',
+            creativiewPictureDb: 'Setting a database to contain the albums and photo\'s data',
+            samplierTitle: 'News website in the world of French rap',
+            samplierCopywriting: 'Translation of articles into web format so that they are readable on every screen sizes.',
+            samplierCalendar: 'Implementation of a calendar where it is possible to add events and album releases.',
+            samplierSounds: 'Ability to drop sounds and listen to them directly on the web application.'
         },
         contact: {
             name: 'Name',
