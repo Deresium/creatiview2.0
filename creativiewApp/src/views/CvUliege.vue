@@ -25,7 +25,8 @@ onMounted(() => {
     const scene = new Scene();
 
     const loader = new GLTFLoader();
-    loader.load('/uliege.glb', (gltf) => {
+    const url = `${import.meta.env.VITE_APP_URL_CREATIVIEW}/uliege.glb`;
+    loader.load(url, (gltf) => {
         scene.add(gltf.scene);
     }, undefined, error => {
         console.log(error);
