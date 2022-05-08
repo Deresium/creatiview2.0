@@ -4,6 +4,7 @@ import CvProjects from "../views/CvProjects.vue";
 import CvContact from "../views/CvContact.vue";
 import CvServicesPro from "../views/services/CvServicesPro.vue";
 import CvServicesIT from "../views/services/CvServicesIT.vue";
+import CvUliege from "../views/CvUliege.vue";
 
 export default [
     {path: '/', name: 'home', component: CvHome, meta: {title: 'Creatiview - Home'}},
@@ -26,4 +27,5 @@ export default [
     },
     {path: '/projects', name: 'projects', component: CvProjects, meta: {title: 'Creatiview - Projects'}},
     {path: '/contact', name: 'contact', component: CvContact, meta: {title: 'Creatiview - Contact'}},
+    {path: '/uliege', name: 'uliege', component: CvUliege, meta: {title: 'Creatiview - Threejs - Uliège'}}
 ]
