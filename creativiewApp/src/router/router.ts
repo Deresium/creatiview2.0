@@ -17,12 +17,12 @@ router.beforeEach((to, from, next) => {
     document.title = title;
 
     // @ts-ignore
-    gtag('event', 'page_view', {
+    /*gtag('event', 'page_view', {
         page_title: <string>to.meta.title,
         page_location: to.fullPath,
         page_path: to.path,
         send_to: 'G-YFLGTMH7KP'
-    });
+    });*/
 
     next();
 });
