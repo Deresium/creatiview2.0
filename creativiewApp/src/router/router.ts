@@ -19,8 +19,8 @@ router.beforeEach((to, from, next) => {
     // @ts-ignore
     gtag('event', 'page_view', {
         page_title: <string>to.meta.title,
-        page_location: to.path,
-        page_path: to.fullPath,
+        page_location: to.fullPath,
+        page_path: to.path,
         send_to: 'G-YFLGTMH7KP'
     });
 
