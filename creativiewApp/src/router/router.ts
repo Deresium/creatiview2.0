@@ -15,6 +15,15 @@ router.beforeEach((to, from, next) => {
         title = <string>to.meta.title;
     }
     document.title = title;
+
+    // @ts-ignore
+    gtag('event', 'page_view', {
+        page_title: <string>to.meta.title,
+        page_location: to.path,
+        page_path: to.fullPath,
+        send_to: 'G-YFLGTMH7KP'
+    });
+
     next();
 });
 
