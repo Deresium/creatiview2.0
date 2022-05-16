@@ -1,5 +1,5 @@
 <template>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 802 290">
+    <svg :class="cssClasses" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 802 290">
         <g id="Group_8" transform="translate(-88 -232)">
             <path id="Intersection_3" d="M119.111,0a119.111,119.111,0,1,0,0,238.222Z" transform="translate(88 232)"
                   fill="#ffa41b"/>
@@ -15,16 +15,44 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import {computed, defineComponent} from "vue";
 
 export default defineComponent({
+    props: {
+        size: {
+            default: 'small'
+        }
+    },
+    setup(props){
+        const cssClasses = computed(() => {
+            return{
+                'small': props.size === 'small',
+                'large': props.size !== 'small'
+            }
+        });
+
+        return {
+            cssClasses
+        }
+    }
 })
 </script>
 
 <style scoped>
-svg{
+.small{
     width: 150px;
 }
+
+.large{
+    width: 300px;
+}
+
+@media(min-width: 900px) {
+    .large{
+        width: 700px;
+    }
+}
+
 tspan{
     font-family: 'Anton', sans-serif;
 }

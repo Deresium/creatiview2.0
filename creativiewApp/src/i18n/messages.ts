@@ -14,8 +14,8 @@ export default {
             together: 'Ensemble',
             website: 'Un site web qui vous',
             lookslike: 'Ressemble',
-            myProjects: 'Projets réalisés',
-            services: 'Services proposés'
+            myProjects: 'Applications réalisées',
+            services: 'Services web proposés'
         },
         services: {
             subtitle1: 'Je réalise aussi bien des projets complets que des développements particuliers pour des entreprises IT.',
