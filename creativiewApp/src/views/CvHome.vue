@@ -22,7 +22,7 @@ import {
     AdditiveBlending,
     AmbientLight,
     BufferAttribute,
-    BufferGeometry, Clock, Mesh, MeshStandardMaterial, OrthographicCamera,
+    BufferGeometry, Clock, Mesh, MeshBasicMaterial, MeshStandardMaterial, OrthographicCamera,
     PerspectiveCamera, PlaneBufferGeometry, PointLight, PointLightHelper,
     Points,
     PointsMaterial,
@@ -51,6 +51,9 @@ export default defineComponent({
         onMounted(() => {
             const scene = new Scene();
 
+            const textureLoader = new TextureLoader();
+            const particleTexture = textureLoader.load('/roundTexture.png');
+
             // Sizes
             const sizes = {
                 width: threejsContainer.value.offsetWidth,
@@ -66,26 +69,45 @@ export default defineComponent({
             const plane = new Mesh(
                 new PlaneBufferGeometry(5, 5),
                 new MeshStandardMaterial({
-                    color: 0xffffff,
-                    transparent: true,
-                    opacity: 0.3
+                    color: 0x000000
                 })
             );
 
-            scene.add(plane);
+
 
             // lights
-            const pointsLight = new Array<PointLight>();
-            for(let i = 0; i < 15; ++i){
-                const pointLight = new PointLight(0xffa41b, 10, 1);
+            const light = new PointLight(0xffffff, 20);
+            light.position.z = 1;
+            scene.add(light);
+
+            const nbPoints = 100;
+            const positions = new Float32Array(nbPoints*3);
+            const particlesGeometry = new BufferGeometry();
+            for(let i = 0; i < nbPoints * 3; i +=3){
                 const x = (Math.random()-0.5) * 2 ;
-                console.log(x);
                 const y = Math.random();
-                const z = Math.random()/500;
-                pointLight.position.set(x, y, z);
-                pointsLight.push(pointLight);
+                const z = 0;
+                positions[i] = x;
+                positions[i+1] = y;
+                positions[i+2] = z;
             }
-            scene.add(...pointsLight);
+            particlesGeometry.setAttribute('position', new BufferAttribute(positions, 3));
+
+            const particlesMaterial = new PointsMaterial({
+                size: 100,
+                color: 0xffa41b,
+                sizeAttenuation: true,
+                transparent: true,
+                //alphaTest: 0.01
+                //depthTest: false,
+                depthWrite: false,
+                blending: AdditiveBlending,
+                opacity: 0.2,
+                alphaMap: particleTexture
+            });
+
+            const particles = new Points(particlesGeometry, particlesMaterial);
+            scene.add(particles);
 
             /*const lightHelper = new PointLightHelper(orangePointLight);
             scene.add(lightHelper);*/
@@ -102,7 +124,9 @@ export default defineComponent({
 
             const clock = new Clock();
             const tick = () => {
-                const intensity = 20 + (Math.sin(clock.getElapsedTime())*4);
+                const value = Math.sin(clock.getElapsedTime());
+
+                /*const intensity = 20 + (Math.sin(clock.getElapsedTime())*4);
                 const intensity2 = 20 + (Math.cos(clock.getElapsedTime() * 1.2)*7);
                 for(let i = 0; i < pointsLight.length; ++i){
                     const modulo = i % 2;
@@ -111,7 +135,7 @@ export default defineComponent({
                     }else{
                         pointsLight[i].intensity = intensity2;
                     }
-                }
+                }*/
 
                 renderer.render(scene, camera);
                 request = window.requestAnimationFrame(tick);
