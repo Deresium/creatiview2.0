@@ -52,7 +52,8 @@ export default defineComponent({
             const scene = new Scene();
 
             const textureLoader = new TextureLoader();
-            const particleTexture = textureLoader.load('/roundTexture.png');
+            const url = `${import.meta.env.VITE_APP_URL_CREATIVIEW}/roundTexture.png`;
+            const particleTexture = textureLoader.load(url);
 
             // Sizes
             const sizes = {

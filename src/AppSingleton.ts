@@ -37,15 +37,15 @@ export default class AppSingleton{
     }
 
     private initApp(){
-        const publicDirectoryPath = path.join(__dirname, '../public');
-        this.expressApp.use(express.static(publicDirectoryPath));
-
         if(process.env.NODE_ENV === 'production') {
             this.expressApp.use(new RedirectHttpsMiddleware().getRequestHandler());
         }
         else {
             this.expressApp.use(new AllowLocalhostMiddleware().getRequestHandler());
         }
+
+        const publicDirectoryPath = path.join(__dirname, '../public');
+        this.expressApp.use(express.static(publicDirectoryPath));
 
         this.expressApp.use(new ReturnIndexMiddleware().getRequestHandler());
 

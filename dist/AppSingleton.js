@@ -35,14 +35,14 @@ class AppSingleton {
         return this.expressApp;
     }
     initApp() {
-        const publicDirectoryPath = path_1.default.join(__dirname, '../public');
-        this.expressApp.use(express_1.default.static(publicDirectoryPath));
         if (process.env.NODE_ENV === 'production') {
             this.expressApp.use(new RedirectHttpsMiddleware_1.default().getRequestHandler());
         }
         else {
             this.expressApp.use(new AllowLocahostMiddleware_1.default().getRequestHandler());
         }
+        const publicDirectoryPath = path_1.default.join(__dirname, '../public');
+        this.expressApp.use(express_1.default.static(publicDirectoryPath));
         this.expressApp.use(new ReturnIndexMiddleware_1.default().getRequestHandler());
         const albumFacade = new AlbumFacade_1.default(new AlbumDataMapper_1.default(), new PictureDataMapper_1.default(), new AwsFileDataMapper_1.default(new AwsOperations_1.default()));
         this.expressApp.use('/api', new PublicFileRouter_1.default(albumFacade).getRouter());
