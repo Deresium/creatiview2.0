@@ -12,7 +12,7 @@ export default [
         path: '/services',
         name: 'services',
         component: CvServices,
-        meta: {title: 'Creatiview - Services'},
+        meta: {title: 'Creatiview - Services'}
     },
     {
         path: '/services/serviceWeb',
