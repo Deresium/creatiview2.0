@@ -21,7 +21,8 @@ class DatabaseSingleton {
             };
         }
         this.sequelize = new sequelize_1.Sequelize(process.env.DATABASE_URL, {
-            dialectOptions
+            dialectOptions,
+            schema: 'creatiview'
         });
     }
     static getInstance() {
@@ -42,6 +43,7 @@ class DatabaseSingleton {
                 console.log(`sequelize connexion ok to ${databaseName}`);
             }
             catch (error) {
+                console.error(error);
                 console.log('sequelize connexion failed');
             }
         });

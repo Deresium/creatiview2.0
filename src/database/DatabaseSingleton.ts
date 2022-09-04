@@ -14,7 +14,8 @@ export default class DatabaseSingleton{
         }
 
         this.sequelize = new Sequelize(process.env.DATABASE_URL, {
-            dialectOptions
+            dialectOptions,
+            schema: 'creatiview'
         })
     }
 
@@ -36,6 +37,7 @@ export default class DatabaseSingleton{
             const databaseName = this.sequelize.getDatabaseName();
             console.log(`sequelize connexion ok to ${databaseName}`);
         }catch(error){
+            console.error(error);
             console.log('sequelize connexion failed');
         }
     }

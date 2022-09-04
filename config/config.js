@@ -7,13 +7,13 @@ module.exports = {
         "dialect": "postgres",
         "seederStorage": "sequelize",
     },
-    test: {
+/*    test: {
         "username": process.env.PG_USER,
         "password": process.env.PG_PASSWORD,
         "database": "cndistri-test",
         "host": "127.0.0.1",
         "dialect": "postgres"
-    },
+    },*/
     production: {
         "username": process.env.PG_USER,
         "password": process.env.PG_PASSWORD,

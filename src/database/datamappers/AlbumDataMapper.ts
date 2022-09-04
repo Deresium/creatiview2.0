@@ -3,9 +3,13 @@ import AlbumEntity from "../entities/AlbumEntity";
 
 export default class AlbumDataMapper implements IAlbumDataGateway {
     async getAllAlbums(): Promise<Array<AlbumEntity>> {
-        return await AlbumEntity.findAll({
-            order: [['order', 'ASC']]
-        });
+        try {
+            return await AlbumEntity.findAll({
+                order: [['order', 'ASC']]
+            });
+        }catch(error){
+            console.error(error);
+        }
     }
 
     async getAlbum(albumId: number): Promise<AlbumEntity> {

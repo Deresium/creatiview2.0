@@ -16,9 +16,14 @@ const AlbumEntity_1 = __importDefault(require("../entities/AlbumEntity"));
 class AlbumDataMapper {
     getAllAlbums() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield AlbumEntity_1.default.findAll({
-                order: [['order', 'ASC']]
-            });
+            try {
+                return yield AlbumEntity_1.default.findAll({
+                    order: [['order', 'ASC']]
+                });
+            }
+            catch (error) {
+                console.error(error);
+            }
         });
     }
     getAlbum(albumId) {
